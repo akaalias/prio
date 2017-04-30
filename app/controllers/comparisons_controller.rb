@@ -1,6 +1,6 @@
 class ComparisonsController < ApplicationController
   def new
-    @remaining_comparisons = Task.count - Comparison.count
+    @remaining_comparisons = Task.possible_combinations - Comparison.count
 
     if Comparison.count == 0
       @task_left = Task.first()
