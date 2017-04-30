@@ -9,13 +9,7 @@ class Combinator
   end
 
   def self.possible_combinations()
-    n = Task.count
-    r = 2
-    self.factorial(n) / (self.factorial(r) * self.factorial(n - r))
-  end
-
-  def self.factorial(n=0)
-    (1..n).inject(:*)
+    self.unique_combinations(Task.all.map(&:id)).count
   end
 
   def self.unique_combinations(ids)
