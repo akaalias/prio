@@ -44,6 +44,7 @@ feature 'Prioritization' do
 
       click_on 'Prioritize'
 
+      # First comparison - A/B
       within 'h1' do
         expect(page).to have_content('Compare Task A and Task B')
       end
@@ -70,7 +71,7 @@ feature 'Prioritization' do
         click_button 'Choose Task A'
       end
 
-      # next comparison A - C
+      # next comparison A/C
       within '#flash' do
         expect(page).to have_content('You chose Task A over Task B')
       end
@@ -101,7 +102,7 @@ feature 'Prioritization' do
         click_button 'Choose Task A'
       end
 
-      # next comparison  – B / C
+      # next comparison – B/C
       within '#flash' do
         expect(page).to have_content('You chose Task A over Task C')
       end
@@ -121,6 +122,27 @@ feature 'Prioritization' do
       # Go back to homepage
       within '#flash' do
         expect(page).to have_content('You compared all Tasks')
+      end
+
+      within 'ul' do
+        within 'li:nth-of-type(1)' do
+          expect(page).to have_content('Task A')
+          within 'span' do
+            expect(page).to have_content('Winner 2 times')
+          end
+        end
+        within 'li:nth-of-type(2)' do
+          expect(page).to have_content('Task B')
+          within 'span' do
+            expect(page).to have_content('Winner 1 times')
+          end
+        end
+        within 'li:nth-of-type(3)' do
+          expect(page).to have_content('Task C')
+          within 'span' do
+            expect(page).to have_content('Winner 0 times')
+          end
+        end
       end
     end
   end

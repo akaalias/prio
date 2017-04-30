@@ -6,7 +6,12 @@
 
 <ul>
   <% Task.all.each do |t| %>
-    <li><%= t.description %></li>
+    <li>
+      <%= t.description %>
+      <span>
+        Winner <%= Comparison.where(choice_id: t.id).count %> times
+      </span>
+    </li>
   <% end %>
 </ul>
 
