@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 feature 'Prioritization' do
+
+  before :each do
+    Task.create(description: 'Task A')
+    Task.create(description: 'Task B')
+    Task.create(description: 'Task C')
+  end
+
   describe 'seeing the list of tasks' do
     before :each do
       visit '/tasks'
@@ -38,7 +45,11 @@ feature 'Prioritization' do
       click_on 'Prioritize'
 
       within 'h1' do
-        expect(page).to have_content('Compare A and B')
+        expect(page).to have_content('Compare Task A and Task B')
+      end
+
+      within '#progress' do
+        expect(page).to have_content('3 Comparisons Remaining')
       end
 
       within 'form:nth-of-type(1)' do
@@ -47,7 +58,7 @@ feature 'Prioritization' do
         end
         expect(page).to have_button 'Choose Task A'
       end
-      
+
       within 'form:nth-of-type(2)' do
         within 'h2' do
           expect(page).to have_content('Task B')
@@ -57,6 +68,51 @@ feature 'Prioritization' do
 
       within('form:nth-of-type(1)') do
         click_button 'Choose Task A'
+      end
+
+      # next comparison A - C
+
+      within '#flash' do
+        expect(page).to have_content('You chose Task A over Task B')
+      end
+
+      within '#progress' do
+        expect(page).to have_content('2 Comparisons Remaining')
+      end
+
+      within 'h1' do
+        expect(page).to have_content('Compare Task A and Task C')
+      end
+
+      within 'form:nth-of-type(1)' do
+        within 'h2' do
+          expect(page).to have_content('Task A')
+        end
+        expect(page).to have_button 'Choose Task A'
+      end
+
+      within 'form:nth-of-type(2)' do
+        within 'h2' do
+          expect(page).to have_content('Task C')
+        end
+        expect(page).to have_button 'Choose Task C'
+      end
+
+      within('form:nth-of-type(1)') do
+        click_button 'Choose Task A'
+      end
+
+      # next comparison
+      within '#flash' do
+        expect(page).to have_content('You chose Task A over Task C')
+      end
+
+      within '#progress' do
+        expect(page).to have_content('1 Comparisons Remaining')
+      end
+
+      within 'h1' do
+        expect(page).to have_content('Compare Task B and Task C')
       end
     end
   end

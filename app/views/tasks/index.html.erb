@@ -1,9 +1,9 @@
 <h1>All Tasks</h1>
 
 <ul>
-  <li>Task A</li>
-  <li>Task B</li>
-  <li>Task C</li>
+  <% Task.all.each do |t| %>
+    <li><%= t.description %></li>
+  <% end %>
 </ul>
 
-<a href="/tasks/compare">Prioritize</a>
+<a href="/comparisons/new">Prioritize</a>

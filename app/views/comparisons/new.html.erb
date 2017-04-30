@@ -1,0 +1,23 @@
+<h1>Compare <%= @task_left.description %> and <%= @task_right.description %></h1>
+
+<div id="progress"><%= @remaining_comparisons %> Comparisons Remaining</div>
+
+<% if flash[:notice] %>
+  <div id="flash"><%= flash[:notice] %></div>
+<% end %>
+
+<%= form_for @comparison do |f| %>
+  <h2><%= @task_left.description %></h2>
+  <%= f.text_field :task_left_id, value: @task_left.id %>
+  <%= f.text_field :task_right_id, value: @task_right.id %>
+  <%= f.text_field :choice_id, value: @task_left.id %>
+  <input type="submit" value="Choose <%= @task_left.description %>"/>
+<% end %>
+
+<%= form_for @comparison do |f| %>
+  <h2><%= @task_right.description %></h2>
+  <%= f.text_field :task_left_id, value: @task_left.id %>
+  <%= f.text_field :task_right_id, value: @task_right.id %>
+  <%= f.text_field :choice_id, value: @task_right.id %>
+  <input type="submit" value="Choose <%= @task_right.description %>"/>
+<% end %>
