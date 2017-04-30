@@ -41,13 +41,22 @@ feature 'Prioritization' do
         expect(page).to have_content('Compare A and B')
       end
 
-      within 'form#new_comparison' do
-        within 'h2:nth-of-type(1)' do
+      within 'form:nth-of-type(1)' do
+        within 'h2' do
           expect(page).to have_content('Task A')
         end
-        within 'h2:nth-of-type(2)' do
+        expect(page).to have_button 'Choose Task A'
+      end
+      
+      within 'form:nth-of-type(2)' do
+        within 'h2' do
           expect(page).to have_content('Task B')
         end
+        expect(page).to have_button 'Choose Task B'
+      end
+
+      within('form:nth-of-type(1)') do
+        click_button 'Choose Task A'
       end
     end
   end
