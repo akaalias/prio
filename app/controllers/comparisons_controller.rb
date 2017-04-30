@@ -21,9 +21,14 @@ class ComparisonsController < ApplicationController
 
     @comparison.save
 
-    flash[:notice] = "You chose #{@comparison.choice.description} over #{@comparison.loser.description}"
+    if Comparison.count == 3
+      flash[:notice] = "You compared all Tasks"
+      redirect_to '/tasks'
+    else
+      flash[:notice] = "You chose #{@comparison.choice.description} over #{@comparison.loser.description}"
+      redirect_to '/comparisons/new'
+    end
 
-    redirect_to '/comparisons/new'
   end
 
   private
