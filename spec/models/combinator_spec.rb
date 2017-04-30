@@ -14,7 +14,6 @@ feature 'Combinator' do
       before :each do
         @a = Task.create(description: "A")
       end
-
       it 'returns an empty list' do
         result = Combinator.generate_comparisons
         expect(result.size).to be(0)
@@ -37,6 +36,27 @@ feature 'Combinator' do
 
         expect(result[0].task_left_id).to be(@a.id)
         expect(result[0].task_right_id).to be(@b.id)
+      end
+    end
+
+    context 'given there are three tasks' do
+      before :each do
+        @a = Task.create(description: "A")
+        @b = Task.create(description: "B")
+        @c = Task.create(description: "C")
+      end
+
+      it 'generates 3 comparisons' do
+        result = Combinator.generate_comparisons
+
+        expect(result.size).to be(3)
+      end
+
+      it 'is a comparison of A - B, A - C and B - C' do
+        result = Combinator.generate_comparisons
+
+        expect(result[0].task_left_id).to eq(@a.id)
+        expect(result[0].task_right_id).to eq(@b.id)
       end
     end
   end
