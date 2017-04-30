@@ -1,6 +1,6 @@
 class ComparisonsController < ApplicationController
   def new
-    @remaining_comparisons = Task.possible_combinations - Comparison.count
+    @remaining_comparisons = Combinator.possible_combinations - Comparison.count
 
     if Comparison.count == 0
       @task_left = Task.first()
@@ -21,7 +21,7 @@ class ComparisonsController < ApplicationController
 
     @comparison.save
 
-    if Comparison.count == Task.possible_combinations
+    if Comparison.count == Combinator.possible_combinations
       flash[:notice] = "You compared all Tasks"
       redirect_to '/tasks'
     else
