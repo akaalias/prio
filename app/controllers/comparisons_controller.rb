@@ -21,7 +21,7 @@ class ComparisonsController < ApplicationController
 
     @comparison.save
 
-    if Comparison.count == 3
+    if Comparison.count == Task.possible_combinations
       flash[:notice] = "You compared all Tasks"
       redirect_to '/tasks'
     else
