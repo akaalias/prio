@@ -1,9 +1,9 @@
-<h1>Compare <%= @task_left.description %> and <%= @task_right.description %></h1>
-
 <div id="progress" class="alert alert-info"><%= @remaining_comparisons %> Comparisons Remaining</div>
 
+<h1 class="text-center">Compare <%= @task_left.description %> and <%= @task_right.description %></h1>
+<hr>
 <div class="row">
-  <div class="col-md-5 text-center">
+  <div class="col-md-5 text-center" id="choice_left">
     <%= form_for @comparison do |f| %>
       <h2><%= @task_left.description %></h2>
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
@@ -15,7 +15,7 @@
   <div class="col-md-1 text-center">
       <h2>or</h2>
   </div>
-  <div class="col-md-5 text-center">
+  <div class="col-md-5 text-center" id="choice_right">
     <%= form_for @comparison do |f| %>
       <h2><%= @task_right.description %></h2>
       <%= f.hidden_field :task_left_id, value: @task_left.id %>

@@ -53,21 +53,21 @@ feature 'Prioritization' do
         expect(page).to have_content('3 Comparisons Remaining')
       end
 
-      within 'form:nth-of-type(1)' do
+      within '#choice_left' do
         within 'h2' do
           expect(page).to have_content('Task A')
         end
         expect(page).to have_button 'Choose Task A'
       end
 
-      within 'form:nth-of-type(2)' do
+      within '#choice_right' do
         within 'h2' do
           expect(page).to have_content('Task B')
         end
         expect(page).to have_button 'Choose Task B'
       end
 
-      within('form:nth-of-type(1)') do
+      within('#choice_left') do
         click_button 'Choose Task A'
       end
 
@@ -84,21 +84,21 @@ feature 'Prioritization' do
         expect(page).to have_content('Compare Task A and Task C')
       end
 
-      within 'form:nth-of-type(1)' do
+      within '#choice_left' do
         within 'h2' do
           expect(page).to have_content('Task A')
         end
         expect(page).to have_button 'Choose Task A'
       end
 
-      within 'form:nth-of-type(2)' do
+      within '#choice_right' do
         within 'h2' do
           expect(page).to have_content('Task C')
         end
         expect(page).to have_button 'Choose Task C'
       end
 
-      within('form:nth-of-type(1)') do
+      within('#choice_left') do
         click_button 'Choose Task A'
       end
 
@@ -115,7 +115,7 @@ feature 'Prioritization' do
         expect(page).to have_content('Compare Task B and Task C')
       end
 
-      within('form:nth-of-type(1)') do
+      within('#choice_left') do
         click_button 'Choose Task B'
       end
 
@@ -166,7 +166,7 @@ feature 'Prioritization' do
       within 'h1' do
         expect(page).to have_content('Compare Task A and Task B')
       end
-      
+
       within '#progress' do
         expect(page).to have_content('3 Comparisons Remaining')
       end
