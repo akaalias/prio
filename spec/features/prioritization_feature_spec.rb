@@ -10,7 +10,7 @@ feature 'Prioritization' do
 
   describe 'seeing the unordered list of tasks' do
     before :each do
-      visit '/'
+      visit '/tasks'
     end
 
     it 'lets me see the title' do
@@ -40,7 +40,7 @@ feature 'Prioritization' do
 
   describe 'Prioritization' do
     it 'lets me compare A and B' do
-      visit '/'
+      visit '/tasks'
 
       click_on 'Prioritize'
 
@@ -158,7 +158,7 @@ feature 'Prioritization' do
     end
 
     it 'shows me the list in order of prioritization' do
-      visit '/'
+      visit '/tasks'
 
       within 'ul' do
         within 'li:nth-of-type(1)' do
@@ -191,7 +191,7 @@ feature 'Prioritization' do
     end
 
     it 'lets me compare A and B' do
-      visit '/'
+      visit '/tasks'
 
       click_on 'Reprioritize'
 

@@ -12,4 +12,12 @@ class TasksController < ApplicationController
       @sorted_tasks = @tasks
     end
   end
+
+  def create
+    descriptions = params[:tasks].split('\n')
+    for d in descriptions
+      Task.create(description: d)
+    end
+    redirect_to '/tasks/'
+  end
 end
