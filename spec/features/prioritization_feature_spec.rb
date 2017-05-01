@@ -15,7 +15,7 @@ feature 'Prioritization' do
 
     it 'lets me see the title' do
       within 'h1' do
-        expect(page).to have_content('All Tasks')
+        expect(page).to have_content(I18n.t('tasks.all_tasks'))
       end
     end
 
@@ -34,7 +34,7 @@ feature 'Prioritization' do
     end
 
     it 'lets me see a link for prioritization' do
-      expect(page).to have_link('Prioritize')
+      expect(page).to have_link(I18n.t('tasks.prioritize'))
     end
   end
 
@@ -42,13 +42,9 @@ feature 'Prioritization' do
     it 'lets me compare A and B' do
       visit '/tasks'
 
-      click_on 'Prioritize'
+      click_on I18n.t('tasks.prioritize')
 
       # First comparison - A/B
-      within 'h1' do
-        expect(page).to have_content('Compare Task A and Task B')
-      end
-
       within '#progress' do
         expect(page).to have_content('3 Comparisons Remaining')
       end
@@ -57,18 +53,18 @@ feature 'Prioritization' do
         within 'h2' do
           expect(page).to have_content('Task A')
         end
-        expect(page).to have_button 'Choose Task A'
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
 
       within '#choice_right' do
         within 'h2' do
           expect(page).to have_content('Task B')
         end
-        expect(page).to have_button 'Choose Task B'
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
 
       within('#choice_left') do
-        click_button 'Choose Task A'
+        click_button I18n.t('comparisons.choose')
       end
 
       # next comparison A/C
@@ -80,26 +76,22 @@ feature 'Prioritization' do
         expect(page).to have_content('2 Comparisons Remaining')
       end
 
-      within 'h1' do
-        expect(page).to have_content('Compare Task A and Task C')
-      end
-
       within '#choice_left' do
         within 'h2' do
           expect(page).to have_content('Task A')
         end
-        expect(page).to have_button 'Choose Task A'
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
 
       within '#choice_right' do
         within 'h2' do
           expect(page).to have_content('Task C')
         end
-        expect(page).to have_button 'Choose Task C'
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
 
       within('#choice_left') do
-        click_button 'Choose Task A'
+        click_button I18n.t('comparisons.choose')
       end
 
       # next comparison – B/C
@@ -111,12 +103,8 @@ feature 'Prioritization' do
         expect(page).to have_content('1 Comparisons Remaining')
       end
 
-      within 'h1' do
-        expect(page).to have_content('Compare Task B and Task C')
-      end
-
       within('#choice_left') do
-        click_button 'Choose Task B'
+        click_button I18n.t('comparisons.choose')
       end
 
       # Go back to homepage
@@ -193,15 +181,25 @@ feature 'Prioritization' do
     it 'lets me compare A and B' do
       visit '/tasks'
 
-      click_on 'Reprioritize'
+      click_on I18n.t('tasks.reprioritize')
 
       # First comparison - A/B
-      within 'h1' do
-        expect(page).to have_content('Compare Task A and Task B')
-      end
-
       within '#progress' do
         expect(page).to have_content('3 Comparisons Remaining')
+      end
+
+      within '#choice_left' do
+        within 'h2' do
+          expect(page).to have_content('Task A')
+        end
+        expect(page).to have_button I18n.t('comparisons.choose')
+      end
+
+      within '#choice_right' do
+        within 'h2' do
+          expect(page).to have_content('Task B')
+        end
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
     end
   end

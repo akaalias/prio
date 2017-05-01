@@ -8,13 +8,13 @@ feature 'Homepage' do
 
     it 'lets me see a headline' do
       within 'h1' do
-        expect(page).to have_content('Do the most valuable thing next.')
+        expect(page).to have_content(I18n.t('homepage.headline'))
       end
     end
 
     it 'lets me see a welcome message' do
       within 'h2' do
-        expect(page).to have_content('Prio.io helps you prioritize a list of tasks effectively.')
+        expect(page).to have_content(I18n.t('homepage.subheadline'))
       end
     end
   end
@@ -28,17 +28,17 @@ feature 'Adding Tasks' do
 
     it 'lets me see instructions' do
       within 'h3' do
-        expect(page).to have_content('Enter your tasks below, one task per line. When you are done, click on the button.')
+        expect(page).to have_content(I18n.t('tasks.instructions'))
       end
     end
 
     it 'lets me create tasks' do
       fill_in 'tasks', with: 'Task A\nTask B\nTask C'
 
-      click_button 'Create Tasks'
+      click_button I18n.t('tasks.create_tasks')
 
       within 'h1' do
-        expect(page).to have_content('All Tasks')
+        expect(page).to have_content(I18n.t('tasks.all_tasks'))
       end
 
       within 'ul' do

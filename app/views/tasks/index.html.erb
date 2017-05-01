@@ -1,4 +1,4 @@
-<h1>All Tasks</h1>
+<h1><%= t('tasks.all_tasks') %></h1>
 
 <ul>
   <% counter = 0 %>
@@ -18,12 +18,11 @@
       <hr>
       <% counter += 1 %>
     <% end %>
-
-    <% end %>
+  <% end %>
 </ul>
 
 <% unless Comparison.next_pending_comparison.nil? %>
-  <a href="/comparisons/new" class="btn btn-primary">Prioritize</a>
+  <a href="/comparisons/new" class="btn btn-primary"><%= t('tasks.prioritize') %></a>
 <% else %>
-  <a href="/comparisons/reprioritize" class="btn btn-danger">Reprioritize</a>
+  <a href="/comparisons/reprioritize" class="btn btn-danger"><%= t('tasks.reprioritize') %></a>
 <% end %>

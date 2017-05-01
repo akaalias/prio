@@ -1,6 +1,4 @@
 <div id="progress" class="alert alert-info"><%= @remaining_comparisons %> Comparisons Remaining</div>
-<h1 class="text-center">Compare <%= @task_left.description %> and <%= @task_right.description %></h1>
-<hr>
 <br/>
 <div class="row">
   <div class="col-md-5 text-center" id="choice_left">
@@ -9,7 +7,7 @@
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_left.id %>
-      <input type="submit" value="Choose <%= @task_left.description %>" class="btn btn-default"/>
+      <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
   </div>
   <div class="col-md-1 text-center">
@@ -21,7 +19,7 @@
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_right.id %>
-      <input type="submit" value="Choose <%= @task_right.description %>" class="btn btn-default"/>
+      <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
     <br/>
   </div>

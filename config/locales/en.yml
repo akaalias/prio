@@ -30,4 +30,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  homepage:
+    headline: "Do the most valuable thing next."
+    subheadline: "Prio.io helps you prioritize a list of tasks effectively."
+  tasks:
+    instructions: "Enter your tasks below, one task per line. When you are done, click on the button."
+    create_tasks: "Create Tasks"
+    all_tasks: "All Tasks"
+    prioritize: "Prioritize"
+    reprioritize: "Reprioritize"
+  comparisons:
+    choose: "Choose"
+    

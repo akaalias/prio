@@ -1,6 +1,6 @@
 <div class="well">
-  <h1>Do the most valuable thing next.</h1>
-  <h2>Prio.io helps you prioritize a list of tasks effectively.</h2>
+  <h1><%= t('homepage.headline') %></h1>
+  <h2><%= t('homepage.subheadline') %></h2>
 </div>
 
 <h3>Enter your tasks below, one task per line. When you are done, click on the button.</h3>
@@ -8,5 +8,5 @@
 <%= form_tag '/tasks/create' do %>
   <textarea id="tasks" name="tasks"></textarea>
   <br/>
-  <input type="submit" value="Create Tasks" class="btn btn-lg btn-primary"/>
+  <input type="submit" value="<%= t('tasks.create_tasks') %>" class="btn btn-lg btn-primary"/>
 <% end %>
