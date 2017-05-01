@@ -10,7 +10,7 @@
 
   <body>
     <% unless current_page?('/') %>
-      <div class="logo text-center"><i class="glyphicon glyphicon-signal"></i> Prio.io</div>
+      <div class="logo text-center"><i class="glyphicon glyphicon-signal"></i> <%= link_to 'Prio.io', '/' %></div>
       <div class="container">
         <% if flash[:notice] %>
           <div id="flash" class="alert alert-success"><%= flash[:notice] %></div>
