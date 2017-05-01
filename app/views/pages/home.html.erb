@@ -1,26 +1,24 @@
-<div class="row banner text-center">
-  <br/>
-  <h1><%= t('homepage.headline') %></h1>
+<div class="container-fluid">
+  <div class="row banner text-center">
+    <br/>
+    <h1><%= t('homepage.headline') %></h1>
 
-  <div class="col-md-3">
-  </div>
+    <div class="col-md-2"></div>
 
-  <div class="col-md-6 text-center">
-    <%= image_tag('prio.jpg', id: 'banner') %>
+    <div class="col-md-8 text-center">
+      <%= image_tag('prio.jpg', id: 'banner') %>
+    </div>
   </div>
 </div>
 
 <div class="container">
-<div class="row">
-  <div class="col-md-3">
-  </div>
-
-  <div class="col-md-6">
-    <h2><%= t('homepage.subheadline') %></h2>
-    <p><%= t('homepage.copy') %></p>
-    <div class="text-center">
-      <%= link_to t('homepage.get_started'), '/tasks/new', class: 'btn btn-lg btn-primary' %>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div id="copy"><%= t('homepage.copy').html_safe %></div>
+      <div class="text-center">
+        <%= link_to t('homepage.get_started'), '/tasks/new', class: 'btn btn-lg btn-primary' %>
+      </div>
     </div>
   </div>
-</div>
 </div>

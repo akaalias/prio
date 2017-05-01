@@ -20,6 +20,8 @@ class TasksController < ApplicationController
   end
 
   def create
+    Task.delete_all
+    Comparison.delete_all
     if(params[:tasks].include?("\r"))
       descriptions = params[:tasks].split("\r\n")
     else
@@ -29,6 +31,7 @@ class TasksController < ApplicationController
     for d in descriptions
       Task.create(description: d)
     end
-    redirect_to '/tasks/'
+
+    redirect_to '/comparisons/new'
   end
 end

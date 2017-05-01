@@ -14,20 +14,12 @@ feature 'Homepage' do
       end
     end
 
-    it 'lets me see a subheadline' do
-      within 'h2' do
-        expect(page).to have_content(I18n.t('homepage.subheadline'))
-      end
-    end
-
     it 'lets me see an image' do
       expect(page).to have_css("img[id='banner']")
     end
 
-    it 'lets me see an explanation' do
-      within 'p:nth-of-type(1)' do
-        expect(page).to have_content(I18n.t('homepage.copy'))
-      end
+    it 'lets me see copy' do
+      expect(page).to have_css("div[id='copy']")
     end
 
     it 'lets me see a get started button' do
@@ -55,20 +47,22 @@ feature 'Adding Tasks' do
 
       click_button I18n.t('tasks.create_tasks')
 
-      within 'h1' do
-        expect(page).to have_content(I18n.t('tasks.all_tasks'))
+      within '#progress' do
+        expect(page).to have_content('3 Comparisons Remaining')
       end
 
-      within 'ul' do
-        within 'li:nth-of-type(1)' do
+      within '#choice_left' do
+        within 'h2' do
           expect(page).to have_content('Task A')
         end
-        within 'li:nth-of-type(2)' do
+        expect(page).to have_button I18n.t('comparisons.choose')
+      end
+
+      within '#choice_right' do
+        within 'h2' do
           expect(page).to have_content('Task B')
         end
-        within 'li:nth-of-type(3)' do
-          expect(page).to have_content('Task C')
-        end
+        expect(page).to have_button I18n.t('comparisons.choose')
       end
     end
   end

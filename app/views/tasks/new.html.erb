@@ -1,4 +1,4 @@
-<h3>Enter your tasks below, one task per line. When you are done, click on the button.</h3>
+<h3><%= t('tasks.instructions') %></h3>
 
 <%= form_tag '/tasks/create' do %>
   <textarea id="tasks" name="tasks" placeholder="Buy milk

@@ -32,11 +32,10 @@
 en:
   homepage:
     headline: "Get Your Priorities Straight In 2 Minutes Without Thinking Hard"
-    subheadline: "Whether you have to-dos, a backlog or a bucketlist, the hardest question is: What should be my priority right now?"
-    copy: "With the Prio.io process we'll help you prioritize your list of choice based on a simple method."
+    copy: "<h2>&quot;What is my highest priority right now?&quot;</h2><p>Whether you have a list of to-dos, a backlog full of user-stories or a bucketlist this question is hard to answer.</p>"
     get_started: "Let's go to Step 1: Create Your List"
   tasks:
-    instructions: "Enter your tasks below, one task per line. When you are done, click on the button."
+    instructions: "Alright, let's get you sorted out. Please enter your list below, one item per line."
     create_tasks: "Let's go to Step 2: Compare Each Item"
     all_tasks: "All Tasks"
     prioritize: "Prioritize"
