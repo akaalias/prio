@@ -15,4 +15,6 @@
   <% end %>
 </ul>
 
-<a href="/comparisons/new">Prioritize</a>
+<% unless Comparison.next_pending_comparison.nil? %>
+  <a href="/comparisons/new">Prioritize</a>
+<% end %>

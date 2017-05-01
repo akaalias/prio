@@ -144,6 +144,9 @@ feature 'Prioritization' do
           end
         end
       end
+
+      expect(page).to_not have_link('Prioritize')
+
     end
   end
 end
