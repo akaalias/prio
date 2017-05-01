@@ -10,7 +10,7 @@ feature 'Prioritization' do
 
   describe 'seeing the list of tasks' do
     before :each do
-      visit '/tasks'
+      visit '/'
     end
 
     it 'lets me see the title' do
@@ -40,7 +40,7 @@ feature 'Prioritization' do
 
   describe 'Comparing' do
     it 'lets me compare A and B' do
-      visit '/tasks'
+      visit '/'
 
       click_on 'Prioritize'
 
