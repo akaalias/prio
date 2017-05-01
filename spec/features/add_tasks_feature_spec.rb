@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 feature 'Homepage' do
+  include ActionView::Helpers::AssetUrlHelper
+
   describe 'Viewing homepage' do
     before :each do
       visit '/'
@@ -10,6 +12,16 @@ feature 'Homepage' do
       within 'h1' do
         expect(page).to have_content(I18n.t('homepage.headline'))
       end
+    end
+
+    it 'lets me see a subheadline' do
+      within 'h2' do
+        expect(page).to have_content(I18n.t('homepage.subheadline'))
+      end
+    end
+
+    it 'lets me see an image' do
+      expect(page).to have_css("img[id='banner']")
     end
 
     it 'lets me see an explanation' do
