@@ -1,7 +1,7 @@
 en:
   homepage:
     headline: "Set Your Priorities Straight In 2 Minutes Without Thinking Hard"
-    copy: "<h2>&quot;With all the things I need to do, what's the most important one right now?&quot;</h2><p>Without a system, this question is hard to answer. <br/><br/>Whether you have a list of to-dos, a backlog full of user-stories or a bucketlist, prioritization is a challenge.</p>"
+    copy: "<h2 class='text-center'>Get the answer to...</br><span class='marker'>&quot;What is the most important thing I need to do next?&quot;</span><br/>(It may even surprise you.)</h2>"
     get_started: "Let's go to Step 1/2: Create Your List"
   tasks:
     instructions: "Alright, let's get you sorted out. Please enter your list below, one item per line."
