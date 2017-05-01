@@ -1,19 +1,9 @@
 class ComparisonsController < ApplicationController
   def new
     @remaining_comparisons = Combinator.possible_combinations - Comparison.count
-
-    if Comparison.count == 0
-      @task_left = Task.first()
-      @task_right = Task.second()
-    elsif Comparison.count == 1
-      @task_left = Task.first()
-      @task_right = Task.third()
-    else
-      @task_left = Task.second()
-      @task_right = Task.third()
-    end
-
-    @comparison = Comparison.new()
+    @comparison = Comparison.next_pending_comparison
+    @task_left = Task.find(@comparison.task_left_id)
+    @task_right = Task.find(@comparison.task_right_id)
   end
 
   def create
