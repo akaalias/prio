@@ -1,24 +1,23 @@
 <div id="progress" class="alert alert-info"><%= @remaining_comparisons %> Comparisons Remaining</div>
 <br/>
 <div class="row">
-  <div class="col-md-5 text-center" id="choice_left">
+  <div class="col-md-6 text-center" id="choice_left">
     <%= form_for @comparison do |f| %>
       <h2><%= @task_left.description %></h2>
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_left.id %>
+      <br>
       <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
   </div>
-  <div class="col-md-1 text-center">
-      <h2>or</h2>
-  </div>
-  <div class="col-md-5 text-center" id="choice_right">
+  <div class="col-md-6 choice text-center" id="choice_right">
     <%= form_for @comparison do |f| %>
       <h2><%= @task_right.description %></h2>
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_right.id %>
+      <br>
       <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
     <br/>

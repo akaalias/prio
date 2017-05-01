@@ -31,14 +31,17 @@
 
 en:
   homepage:
-    headline: "Do the most valuable thing next."
-    subheadline: "Prio.io helps you prioritize a list of tasks effectively."
+    headline: "Get Your Priorities Straight In 2 Minutes Without Thinking Hard"
+    subheadline: "Whether you have to-dos, a backlog or a bucketlist, the hardest question is: What should be on top of the list?"
+    explanation:
+      step_one: "1.) First, we'll make a list of things that are on your plate right now"
+      step_two: "2.) Then we'll guide through comparing each item in your list with each other."
+    get_started: "Let's go to Step 1: Create Your List"
   tasks:
     instructions: "Enter your tasks below, one task per line. When you are done, click on the button."
-    create_tasks: "Create Tasks"
+    create_tasks: "Let's go to Step 2: Compare Each Item"
     all_tasks: "All Tasks"
     prioritize: "Prioritize"
     reprioritize: "Reprioritize"
   comparisons:
     choose: "Choose"
-    
