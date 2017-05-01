@@ -33,10 +33,10 @@ en:
   homepage:
     headline: "Get Your Priorities Straight In 2 Minutes Without Thinking Hard"
     copy: "<h2>&quot;What is my highest priority right now?&quot;</h2><p>Whether you have a list of to-dos, a backlog full of user-stories or a bucketlist this question is hard to answer.</p>"
-    get_started: "Let's go to Step 1: Create Your List"
+    get_started: "Let's go to Step 1/2: Create Your List"
   tasks:
     instructions: "Alright, let's get you sorted out. Please enter your list below, one item per line."
-    create_tasks: "Let's go to Step 2: Compare Each Item"
+    create_tasks: "Let's go to Step 2/2: Compare Each Item"
     all_tasks: "All Tasks"
     prioritize: "Prioritize"
     reprioritize: "Reprioritize"
