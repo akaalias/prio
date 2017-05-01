@@ -127,19 +127,19 @@ feature 'Prioritization' do
       within 'ul' do
         within 'li:nth-of-type(1)' do
           expect(page).to have_content('Task A')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 2 times')
           end
         end
         within 'li:nth-of-type(2)' do
           expect(page).to have_content('Task B')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 1 times')
           end
         end
         within 'li:nth-of-type(3)' do
           expect(page).to have_content('Task C')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 0 times')
           end
         end
@@ -163,19 +163,19 @@ feature 'Prioritization' do
       within 'ul' do
         within 'li:nth-of-type(1)' do
           expect(page).to have_content('Task C')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 2 times')
           end
         end
         within 'li:nth-of-type(2)' do
           expect(page).to have_content('Task B')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 1 times')
           end
         end
         within 'li:nth-of-type(3)' do
           expect(page).to have_content('Task A')
-          within 'span' do
+          within 'small' do
             expect(page).to have_content('Winner 0 times')
           end
         end

@@ -2,11 +2,14 @@
 
 <ul>
   <% @sorted_tasks.each do |t| %>
-    <li>
-      <%= t.description %>
-      <span>
-        Winner <%= Comparison.where(choice_id: t.id).count %> times
-      </span>
+    <li class="well">
+      <h4>
+        <%= t.description %>
+        <small class="pull-right">
+          Winner <%= Comparison.where(choice_id: t.id).count %> times
+        </small>
+
+      </h4>
     </li>
   <% end %>
 </ul>
