@@ -1,23 +1,28 @@
-<% if flash[:notice] %>
-  <div id="flash"><%= flash[:notice] %></div>
-<% end %>
-
 <h1>Compare <%= @task_left.description %> and <%= @task_right.description %></h1>
 
-<div id="progress"><%= @remaining_comparisons %> Comparisons Remaining</div>
+<div id="progress" class="alert alert-info"><%= @remaining_comparisons %> Comparisons Remaining</div>
 
-<%= form_for @comparison do |f| %>
-  <h2><%= @task_left.description %></h2>
-  <%= f.hidden_field :task_left_id, value: @task_left.id %>
-  <%= f.hidden_field :task_right_id, value: @task_right.id %>
-  <%= f.hidden_field :choice_id, value: @task_left.id %>
-  <input type="submit" value="Choose <%= @task_left.description %>"/>
-<% end %>
-
-<%= form_for @comparison do |f| %>
-  <h2><%= @task_right.description %></h2>
-  <%= f.hidden_field :task_left_id, value: @task_left.id %>
-  <%= f.hidden_field :task_right_id, value: @task_right.id %>
-  <%= f.hidden_field :choice_id, value: @task_right.id %>
-  <input type="submit" value="Choose <%= @task_right.description %>"/>
-<% end %>
+<div class="row">
+  <div class="col-md-5 text-center">
+    <%= form_for @comparison do |f| %>
+      <h2><%= @task_left.description %></h2>
+      <%= f.hidden_field :task_left_id, value: @task_left.id %>
+      <%= f.hidden_field :task_right_id, value: @task_right.id %>
+      <%= f.hidden_field :choice_id, value: @task_left.id %>
+      <input type="submit" value="Choose <%= @task_left.description %>" class="btn btn-default"/>
+    <% end %>
+  </div>
+  <div class="col-md-1 text-center">
+      <h2>or</h2>
+  </div>
+  <div class="col-md-5 text-center">
+    <%= form_for @comparison do |f| %>
+      <h2><%= @task_right.description %></h2>
+      <%= f.hidden_field :task_left_id, value: @task_left.id %>
+      <%= f.hidden_field :task_right_id, value: @task_right.id %>
+      <%= f.hidden_field :choice_id, value: @task_right.id %>
+      <input type="submit" value="Choose <%= @task_right.description %>" class="btn btn-default"/>
+    <% end %>
+    <br/>
+  </div>
+</div>
