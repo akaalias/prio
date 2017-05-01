@@ -1,7 +1,7 @@
 <h1>All Tasks</h1>
 
 <ul>
-  <% Task.all.each do |t| %>
+  <% @sorted_tasks.each do |t| %>
     <li>
       <%= t.description %>
       <span>

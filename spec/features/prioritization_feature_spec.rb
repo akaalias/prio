@@ -8,7 +8,7 @@ feature 'Prioritization' do
     @t3 = Task.create(description: 'Task C')
   end
 
-  describe 'seeing the list of tasks' do
+  describe 'seeing the unordered list of tasks' do
     before :each do
       visit '/'
     end
@@ -150,7 +150,40 @@ feature 'Prioritization' do
     end
   end
 
-  describe 'Prioritization' do
+  describe 'Ordering after prioritization' do
+    before :each do
+      Comparison.create(task_left_id: @t1.id, task_right_id: @t2.id, choice_id: @t2.id)
+      Comparison.create(task_left_id: @t1.id, task_right_id: @t3.id, choice_id: @t3.id)
+      Comparison.create(task_left_id: @t2.id, task_right_id: @t3.id, choice_id: @t3.id)
+    end
+
+    it 'shows me the list in order of prioritization' do
+      visit '/'
+
+      within 'ul' do
+        within 'li:nth-of-type(1)' do
+          expect(page).to have_content('Task C')
+          within 'span' do
+            expect(page).to have_content('Winner 2 times')
+          end
+        end
+        within 'li:nth-of-type(2)' do
+          expect(page).to have_content('Task B')
+          within 'span' do
+            expect(page).to have_content('Winner 1 times')
+          end
+        end
+        within 'li:nth-of-type(3)' do
+          expect(page).to have_content('Task A')
+          within 'span' do
+            expect(page).to have_content('Winner 0 times')
+          end
+        end
+      end
+    end
+  end
+
+  describe 'Reprioritization' do
     before :each do
       Comparison.create(task_left_id: @t1.id, task_right_id: @t2.id, choice_id: @t1.id)
       Comparison.create(task_left_id: @t1.id, task_right_id: @t3.id, choice_id: @t1.id)
