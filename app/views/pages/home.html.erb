@@ -3,6 +3,7 @@
 <h3>Enter your tasks below, one task per line. When you are done, click on the button.</h3>
 
 <%= form_tag '/tasks/create' do %>
-  <textarea id="tasks" name="tasks"></textarea>
+  <textarea id="tasks" name="tasks" class="input-lg"></textarea>
+  <br/>
   <input type="submit" value="Create Tasks"/>
 <% end %>

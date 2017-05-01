@@ -14,7 +14,12 @@ class TasksController < ApplicationController
   end
 
   def create
-    descriptions = params[:tasks].split('\n')
+    if(params[:tasks].include?("\r"))
+      descriptions = params[:tasks].split("\r\n")
+    else
+      descriptions = params[:tasks].split('\n')
+    end
+
     for d in descriptions
       Task.create(description: d)
     end
