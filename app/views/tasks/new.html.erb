@@ -1,0 +1,10 @@
+<h3>Enter your tasks below, one task per line. When you are done, click on the button.</h3>
+
+<%= form_tag '/tasks/create' do %>
+  <textarea id="tasks" name="tasks" placeholder="Buy milk
+Take a walk
+Read a book
+Write proposal"></textarea>
+  <br/>
+  <input type="submit" value="<%= t('tasks.create_tasks') %>" class="btn btn-lg btn-primary"/>
+<% end %>

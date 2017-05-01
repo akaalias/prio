@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-3">
+  </div>
+
+  <div class="col-md-6">
+    <%= image_tag('prio.png', id: 'banner', style: 'width: 100%;') %>
+    <h1><%= t('homepage.headline') %></h1>
+    <h2><%= t('homepage.subheadline') %></h2>
+
+    <p><%= t('homepage.explanation.step_one') %></p>
+    <p><%= t('homepage.explanation.step_two') %></p>
+    <%= link_to t('homepage.get_started'), '/tasks/new', class: 'btn btn-lg btn-primary' %>
+  </div>
+</div>
