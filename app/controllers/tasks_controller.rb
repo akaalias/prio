@@ -2,10 +2,16 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
     @sorted_tasks = []
+    @highest_rank = 0
 
     if Comparison.count > 0
       for t in @tasks
-        t.rank = Comparison.where(['choice_id = ?', t.id]).count
+        rank = Comparison.where(['choice_id = ?', t.id]).count
+        t.rank = rank
+
+        if rank > @highest_rank
+          @highest_rank = rank
+        end
       end
       @sorted_tasks = @tasks.sort_by(&:rank).reverse
     else

@@ -13,3 +13,30 @@ ul {
 ul, li {
   list-style: none;
 }
+
+/* HOME */
+
+textarea#tasks, textarea#tasks:focus {
+  width: 100%;
+  height: 400px;
+  font-size: 2.4em;
+  border: none;
+  border-left: 2px solid #666;
+  background-color: lightyellow;
+}
+
+/* TASKS */
+
+.well.highest-rank {
+  border-color: red !important;
+  background-color: red !important;
+}
+
+.well.alert-danger {
+  border-color: #a94400;
+  background-color: #a94442;
+}
+
+.well.alert-danger h4, .well.alert-danger small {
+  color: white;
+}
