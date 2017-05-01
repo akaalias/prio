@@ -3,9 +3,9 @@ require 'rails_helper'
 feature 'Prioritization' do
 
   before :each do
-    Task.create(description: 'Task A')
-    Task.create(description: 'Task B')
-    Task.create(description: 'Task C')
+    @t1 = Task.create(description: 'Task A')
+    @t2 = Task.create(description: 'Task B')
+    @t3 = Task.create(description: 'Task C')
   end
 
   describe 'seeing the list of tasks' do
@@ -38,7 +38,7 @@ feature 'Prioritization' do
     end
   end
 
-  describe 'Comparing' do
+  describe 'Prioritization' do
     it 'lets me compare A and B' do
       visit '/'
 
@@ -146,7 +146,30 @@ feature 'Prioritization' do
       end
 
       expect(page).to_not have_link('Prioritize')
+      expect(page).to have_link('Reprioritize')
+    end
+  end
 
+  describe 'Prioritization' do
+    before :each do
+      Comparison.create(task_left_id: @t1.id, task_right_id: @t2.id, choice_id: @t1.id)
+      Comparison.create(task_left_id: @t1.id, task_right_id: @t3.id, choice_id: @t1.id)
+      Comparison.create(task_left_id: @t2.id, task_right_id: @t3.id, choice_id: @t2.id)
+    end
+
+    it 'lets me compare A and B' do
+      visit '/'
+
+      click_on 'Reprioritize'
+
+      # First comparison - A/B
+      within 'h1' do
+        expect(page).to have_content('Compare Task A and Task B')
+      end
+      
+      within '#progress' do
+        expect(page).to have_content('3 Comparisons Remaining')
+      end
     end
   end
 end

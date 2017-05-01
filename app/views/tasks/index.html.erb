@@ -17,4 +17,6 @@
 
 <% unless Comparison.next_pending_comparison.nil? %>
   <a href="/comparisons/new">Prioritize</a>
+<% else %>
+  <a href="/comparisons/reprioritize">Reprioritize</a>
 <% end %>

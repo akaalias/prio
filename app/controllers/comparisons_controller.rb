@@ -8,7 +8,6 @@ class ComparisonsController < ApplicationController
 
   def create
     @comparison = Comparison.new(comparison_params)
-
     @comparison.save
 
     if Comparison.count == Combinator.possible_combinations
@@ -18,7 +17,11 @@ class ComparisonsController < ApplicationController
       flash[:notice] = "You chose #{@comparison.choice.description} over #{@comparison.loser.description}"
       redirect_to '/comparisons/new'
     end
+  end
 
+  def reprioritize
+    Comparison.delete_all
+    redirect_to '/comparisons/new'
   end
 
   private
