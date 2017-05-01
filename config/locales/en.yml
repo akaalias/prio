@@ -32,10 +32,8 @@
 en:
   homepage:
     headline: "Get Your Priorities Straight In 2 Minutes Without Thinking Hard"
-    subheadline: "Whether you have to-dos, a backlog or a bucketlist, the hardest question is: What should be on top of the list?"
-    explanation:
-      step_one: "1.) First, we'll make a list of things that are on your plate right now"
-      step_two: "2.) Then we'll guide through comparing each item in your list with each other."
+    subheadline: "Whether you have to-dos, a backlog or a bucketlist, the hardest question is: What should be my priority right now?"
+    copy: "With the Prio.io process we'll help you prioritize your list of choice based on a simple method."
     get_started: "Let's go to Step 1: Create Your List"
   tasks:
     instructions: "Enter your tasks below, one task per line. When you are done, click on the button."

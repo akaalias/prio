@@ -9,12 +9,16 @@
   </head>
 
   <body>
-    <div class="container">
-      <% if flash[:notice] %>
-        <div id="flash" class="alert alert-success"><%= flash[:notice] %></div>
-      <% end %>
-
+    <% unless current_page?('/') %>
+      <div class="logo text-center"><i class="glyphicon glyphicon-signal"></i> Prio.io</div>
+      <div class="container">
+        <% if flash[:notice] %>
+          <div id="flash" class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+    <% else %>
       <%= yield %>
-    </div>
+    <% end %>
   </body>
 </html>

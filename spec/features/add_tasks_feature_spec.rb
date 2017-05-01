@@ -26,11 +26,7 @@ feature 'Homepage' do
 
     it 'lets me see an explanation' do
       within 'p:nth-of-type(1)' do
-        expect(page).to have_content(I18n.t('homepage.explanation.step_one'))
-      end
-
-      within 'p:nth-of-type(2)' do
-        expect(page).to have_content(I18n.t('homepage.explanation.step_two'))
+        expect(page).to have_content(I18n.t('homepage.copy'))
       end
     end
 
