@@ -47,10 +47,6 @@ feature 'Adding Tasks' do
 
       click_button I18n.t('tasks.create_tasks')
 
-      within '#progress' do
-        expect(page).to have_content('3 Comparisons Remaining')
-      end
-
       within '#choice_left' do
         within 'h2' do
           expect(page).to have_content('Task A')

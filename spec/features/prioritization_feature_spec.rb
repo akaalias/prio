@@ -45,8 +45,8 @@ feature 'Prioritization' do
       click_on I18n.t('tasks.prioritize')
 
       # First comparison - A/B
-      within '#progress' do
-        expect(page).to have_content('3 Comparisons Remaining')
+      within '.progress-bar' do
+        expect(page).to have_content('0%')
       end
 
       within '#choice_left' do
@@ -68,12 +68,8 @@ feature 'Prioritization' do
       end
 
       # next comparison A/C
-      within '#flash' do
-        expect(page).to have_content('You chose Task A over Task B')
-      end
-
-      within '#progress' do
-        expect(page).to have_content('2 Comparisons Remaining')
+      within '.progress-bar' do
+        expect(page).to have_content('33%')
       end
 
       within '#choice_left' do
@@ -95,12 +91,8 @@ feature 'Prioritization' do
       end
 
       # next comparison – B/C
-      within '#flash' do
-        expect(page).to have_content('You chose Task A over Task C')
-      end
-
-      within '#progress' do
-        expect(page).to have_content('1 Comparisons Remaining')
+      within '.progress-bar' do
+        expect(page).to have_content('67%')
       end
 
       within('#choice_left') do
@@ -108,10 +100,6 @@ feature 'Prioritization' do
       end
 
       # Go back to homepage
-      within '#flash' do
-        expect(page).to have_content('You compared all Tasks')
-      end
-
       within 'ul' do
         within 'li:nth-of-type(1)' do
           expect(page).to have_content('Task A')
@@ -184,8 +172,8 @@ feature 'Prioritization' do
       click_on I18n.t('tasks.reprioritize')
 
       # First comparison - A/B
-      within '#progress' do
-        expect(page).to have_content('3 Comparisons Remaining')
+      within '.progress-bar' do
+        expect(page).to have_content('0%')
       end
 
       within '#choice_left' do

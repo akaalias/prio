@@ -4,6 +4,7 @@ class ComparisonsController < ApplicationController
     @comparison = Comparison.next_pending_comparison
     @task_left = Task.find(@comparison.task_left_id)
     @task_right = Task.find(@comparison.task_right_id)
+    @current_progress = ((Comparison.count.to_f / Combinator.possible_combinations.to_f) * 100.0)
   end
 
   def create
@@ -11,10 +12,8 @@ class ComparisonsController < ApplicationController
     @comparison.save
 
     if Comparison.count == Combinator.possible_combinations
-      flash[:notice] = "You compared all Tasks"
       redirect_to '/tasks'
     else
-      flash[:notice] = "You chose #{@comparison.choice.description} over #{@comparison.loser.description}"
       redirect_to '/comparisons/new'
     end
   end

@@ -1,8 +1,5 @@
-<div id="progress" class="alert alert-info"><%= @remaining_comparisons %> Comparisons Remaining</div>
-
 <h1 class="text-center">Which of these two is more important?</h1>
-<hr>
-
+<br/>
 <div class="row">
   <div class="col-md-6 text-center" id="choice_left">
     <%= form_for @comparison do |f| %>
@@ -24,5 +21,11 @@
       <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
     <br/>
+  </div>
+</div>
+
+<div id="progress" class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="<%= @current_progress %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= number_to_percentage(@current_progress, precision: 0) %>;">
+    <%= number_to_percentage(@current_progress, precision: 0) %>
   </div>
 </div>
