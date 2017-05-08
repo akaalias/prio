@@ -1,24 +1,13 @@
-# README
+# Prio.io
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails app that allows users to prioritize a list of tasks based on their importance using duels. Edit
+Add topics
 
-Things you may want to cover:
+## How to test
 
-* Ruby version
+`rails spec` will run all system tests.
 
-* System dependencies
+## How to run locally
 
-* Configuration
+`rails server`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
