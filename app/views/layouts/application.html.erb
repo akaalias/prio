@@ -5,7 +5,13 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta property="og:url"                content="https://prioio.herokuapp.com"/>
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="<%= t('homepage.headline') %>" />
+    <meta property="og:description"        content="Get the answer to... &quot;What is the most important thing I need to do next?&quot; (It may even surprise you.)" />
+    <meta property="og:image"              content="<%= asset_url('prio.jpg') %>" />
+
   </head>
 
   <body>
