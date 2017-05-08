@@ -77,6 +77,11 @@ textarea#tasks, textarea#tasks:focus {
   padding: 10px;
 }
 
+.well.highest-rank h4 {
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
 .well.highest-rank {
   border-color: red !important;
   background-color: red !important;
@@ -89,4 +94,5 @@ textarea#tasks, textarea#tasks:focus {
 
 .well.alert-danger h4, .well.alert-danger small {
   color: white;
+  font-weight: normal;
 }

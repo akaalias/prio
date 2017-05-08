@@ -8,36 +8,6 @@ feature 'Prioritization' do
     @t3 = Task.create(description: 'Task C')
   end
 
-  describe 'seeing the unordered list of tasks' do
-    before :each do
-      visit '/tasks'
-    end
-
-    it 'lets me see the title' do
-      within 'h1' do
-        expect(page).to have_content(I18n.t('tasks.all_tasks'))
-      end
-    end
-
-    it 'lets me see the list of tasks' do
-      within 'ul' do
-        within 'li:nth-of-type(1)' do
-          expect(page).to have_content('Task A')
-        end
-        within 'li:nth-of-type(2)' do
-          expect(page).to have_content('Task B')
-        end
-        within 'li:nth-of-type(3)' do
-          expect(page).to have_content('Task C')
-        end
-      end
-    end
-
-    it 'lets me see a link for prioritization' do
-      expect(page).to have_link(I18n.t('tasks.prioritize'))
-    end
-  end
-
   describe 'Prioritization' do
     it 'lets me compare A and B' do
       visit '/tasks'

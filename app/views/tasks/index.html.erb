@@ -1,5 +1,6 @@
-<h1><%= t('tasks.all_tasks') %></h1>
+<h1><%= t('tasks.all_tasks').html_safe %></h1>
 
+<br/>
 <ul>
   <% counter = 0 %>
   <% @sorted_tasks.each do |t| %>
@@ -15,7 +16,10 @@
       </h4>
     </li>
     <% if counter == 0 and @highest_rank != 0 %>
-      <hr>
+      <br/>
+      <br/>
+      <br/>
+      <h2>After that you can tackle...</h2>
       <% counter += 1 %>
     <% end %>
   <% end %>

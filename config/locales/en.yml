@@ -6,7 +6,7 @@ en:
   tasks:
     instructions: "Alright, let's get you sorted out. Please enter your list below, one item per line."
     create_tasks: "Let's go to Step 2/2: Compare Each Item"
-    all_tasks: "All Tasks"
+    all_tasks: "Your most <span class='important'>important</span> <i>and</i> <span class='urgent'>urgent</span> next step is..."
     prioritize: "Prioritize"
     reprioritize: "Reprioritize"
   comparisons:
