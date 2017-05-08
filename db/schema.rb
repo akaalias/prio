@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430143614) do
+ActiveRecord::Schema.define(version: 20170508150029) do
 
   create_table "comparisons", force: :cascade do |t|
     t.string "choice"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170430143614) do
     t.integer "task_left_id"
     t.integer "task_right_id"
     t.integer "choice_id"
+    t.string "measure"
   end
 
   create_table "tasks", force: :cascade do |t|

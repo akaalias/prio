@@ -1,14 +1,4 @@
 class Combinator
-  def self.generate_comparisons
-    result = []
-
-    for combo in self.unique_combinations(Task.all.map(&:id))
-      result << Comparison.new(task_left_id: combo[0], task_right_id: combo[1])
-    end
-
-    return result
-  end
-
   def self.possible_combinations()
     self.unique_combinations(Task.all.map(&:id)).count
   end

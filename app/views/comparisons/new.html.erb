@@ -1,4 +1,4 @@
-<h1 class="text-center">Which of these two is more important?</h1>
+<h1 class="text-center">Which of these two is more <%= @comparison.measure %>?</h1>
 <br/>
 <div class="row">
   <div class="col-md-6 text-center" id="choice_left">
@@ -7,6 +7,7 @@
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_left.id %>
+      <%= f.hidden_field :measure %>
       <br>
       <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
@@ -17,6 +18,7 @@
       <%= f.hidden_field :task_left_id, value: @task_left.id %>
       <%= f.hidden_field :task_right_id, value: @task_right.id %>
       <%= f.hidden_field :choice_id, value: @task_right.id %>
+      <%= f.hidden_field :measure %>
       <br>
       <input type="submit" value="<%= t('comparisons.choose') %>" class="btn btn-lg btn-primary"/>
     <% end %>
