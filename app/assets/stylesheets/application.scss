@@ -19,6 +19,16 @@ body {
   text-decoration: none;
 }
 
+.important {
+  background-color: lightyellow;
+  border-bottom: 5px solid lightgreen;
+}
+
+.urgent {
+  background-color: lightyellow;
+  border-bottom: 5px solid red;
+}
+
 #new_comparison {
   border: 1px solid #ccc;
   border-radius: 3px 3px 3px 3px;
